@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "designers-mind-online-angular": {
+      "hosting": {
+        "designers-mind-online-angular": [
+          "designers-mind-online-angular"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "designers-mind-online-angular"
+  }
+}

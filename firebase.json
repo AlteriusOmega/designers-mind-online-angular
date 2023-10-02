@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "designers-mind-online-angular",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

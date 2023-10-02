@@ -1,6 +1,8 @@
 # DesignersMindOnlineAngular
-
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
+
+## Description
+This is an Angular project utilizing Firebase Firestore and Authentication for the backend and Less.js for styling. It will serve as the new storefront to replace my Etsy store Designer's Mind Online where I sell 3D printed and laser-cut gifts that I design and create myself.
 
 ## Development server
 
