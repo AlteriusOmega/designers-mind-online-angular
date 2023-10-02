@@ -7,4 +7,5 @@ export const environment = {
     authDomain: 'designers-mind-online-angular.firebaseapp.com',
     messagingSenderId: '246744242945',
     measurementId: 'G-M8VH4YQYTP',
-  },};
+  }
+};

@@ -1,3 +1,5 @@
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProductsModule } from './products/products.module';
@@ -17,12 +19,12 @@ import { HomeComponent } from './home/home.component';
 
 import { SharedModule } from './shared/shared.module';
 import { SignupComponent } from './signup/signup.component';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideStorage, getStorage } from '@angular/fire/storage';
 
+// initializeApp(environment.firebase);
 
 @NgModule({
   declarations: [
@@ -40,14 +42,14 @@ import { provideStorage,getStorage } from '@angular/fire/storage';
     SignupComponent,
   ],
   imports: [
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
+    provideStorage(() => getStorage()),
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     ProductsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
   ],
   providers: [],
   bootstrap: [AppComponent]
