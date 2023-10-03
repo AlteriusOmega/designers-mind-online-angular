@@ -5,10 +5,10 @@ This is an Angular project I developed utilizing Firebase Firestore, Storage, an
 
 **This is what it looks like:**
 #### Products Page
-![Products page](./assets/dmo-quartz-products.png)
+![Products page](.src/assets/dmo-quartz-products.png)
 
 #### About Page
-![About page](./assets/dmo-quartz-about.png)
+![About page](.src/assets/dmo-quartz-about.png)
 
 ## Firebase Components
 
