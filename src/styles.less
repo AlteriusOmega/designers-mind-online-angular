@@ -1,8 +1,21 @@
-@import "~bootstrap/dist/css/bootstrap.css";
+// // Bootstrap default theme
+// @import "~bootstrap/dist/css/bootstrap.css";
 
-@body-padding: 20px;
+// Bootswatch Quarz theme
+@import "/src/bootswatch-quartz.css";
 
-body{
-  padding: @body-padding;
+@content-padding: 35px;
 
+input:not([type="checkbox"]):not([type="radio"]) {
+  width: 30% !important;
+}
+
+.navbar {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: whitesmoke;
+}
+
+.content {
+  padding: @content-padding;
 }

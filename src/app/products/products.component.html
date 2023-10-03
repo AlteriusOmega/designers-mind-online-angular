@@ -3,12 +3,25 @@
 <div *ngIf="!productsDataLoaded">
   <p>Loading...</p>
 </div>
+
 <div *ngIf="productsDataLoaded">
   <div *ngFor="let product of products" >
-    <h3>{{ product.name }}</h3>
+
+    <!-- <h3>{{ product.name }}</h3>
     <p>{{ product.description }}</p>
     <img *ngIf="product.imageUrls!.length >0"
-    [src]="product.imageUrls[0]" [alt]="product.name" width="300">
+    [src]="product.imageUrls[0]" [alt]="product.name" width="300"> -->
+
+    <div class="card" style="width: 18rem;">
+      <img *ngIf="product.imageUrls!.length >0"
+      [src]="product.imageUrls[0]" [alt]="product.name" class="card -img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}} </h5>
+        <p class="card-text">{{product.description}} </p>
+        <a class="btn btn-primary">Add to Cart</a>
+      </div>
+    </div>
+
+
   </div>
 </div>
-<!-- <img [src]="productImageUrls[0]" alt=""> -->
