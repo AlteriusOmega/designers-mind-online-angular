@@ -9,19 +9,35 @@ import { StorageService } from '../storage.service';
 })
 export class ProductsComponent implements OnInit{
 
-  products: any[] = [];
+  // products: any[] = [];
+  products: { name: string, description: string, imageUrls: string[] }[] = [];
+
+  productImageUrls: string[] = [];
+  productsDataLoaded: boolean = false;
 
   constructor(private productService: ProductService, private storageService: StorageService){
-    productService.fetchProducts()
-      .then(products => {
-        console.log(`Products is`, products);
-      });
-    // const image1Ref = this.storageService.getImage1();
   }
+
   ngOnInit(): void {
-    this.loadProducts();
+    // this.loadProducts();
+    this.loadProductsAndImages();
   }
-  async loadProducts(): Promise<void>{
+  // async loadProducts(): Promise<void>{
+  //   this.products = await this.productService.fetchProducts();
+  //   // console.log(`In loadProducts and this.products is `, this.products);
+  //   this.productImageUrls = await this.storageService.getProductImageUrls(this.products[0]);
+  //   // console.log(`In loadProducts and this.productImageUrls is `, this.productImageUrls); // Not working yet
+  // }
+
+  async loadProductsAndImages() {
     this.products = await this.productService.fetchProducts();
+    for (const product of this.products) {
+      product.imageUrls = await this.storageService.getProductImageUrls(product);
+      console.log(`In loadProductsAndImages and products is`, this.products);
+      this.productsDataLoaded = true;
+
+    }
   }
+
+
 }

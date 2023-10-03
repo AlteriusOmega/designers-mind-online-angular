@@ -1,0 +1,17 @@
+OK SO!
+
+Need to decide on system of syncing Firestore database and Firebase Storage image files for products.
+
+Deciding to use paths. Each product will have a folder in Storage. That folder name will be stored as a field in each product document in Firestore.
+
+Then, in the code you will have the product document, you get the folder name, you build the path, and then get the reference using ref(fullPath)
+
+Then, with the image file reference you get the URL via getDownloadURL()
+
+
+Need to decide where to break up document objects.
+For now let's be lazy and always pass the full DocumentData object to any function that needs it. The function will consume the object and get the needed properties
+
+Notes on Firebase API types etc.
+When you get a document from Firestire, the type is DocumentData, which is an object with unkown fields
+You can get a reference to a file or folder form Storage synchronously, but to get the actual file requires async/await or promises and .then

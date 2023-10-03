@@ -6,23 +6,23 @@ import { ProductsModule } from './products/products.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { SearchComponent } from './search/search.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
-import { ProductsComponent } from './products/products.component';
-import { ProductItemComponent } from './products/product-item/product-item.component';
-import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { CartComponent } from './cart/cart.component';
 import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { ProductItemComponent } from './products/product-item/product-item.component';
+import { ProductsComponent } from './products/products.component';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchComponent } from './search/search.component';
 
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { getStorage, provideStorage } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
 import { SignupComponent } from './signup/signup.component';
-import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { provideStorage, getStorage } from '@angular/fire/storage';
 
 // initializeApp(environment.firebase);
 
@@ -43,8 +43,8 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
   ],
   imports: [
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
     provideStorage(() => getStorage()),
     BrowserModule,
     AppRoutingModule,

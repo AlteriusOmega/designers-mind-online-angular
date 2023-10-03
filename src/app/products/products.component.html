@@ -1,7 +1,14 @@
 
 <h2>Products</h2>
-<div *ngFor="let product of products" >
-  <h3>{{ product.name }}</h3>
-  <p>{{ product.description }}</p>
-
+<div *ngIf="!productsDataLoaded">
+  <p>Loading...</p>
 </div>
+<div *ngIf="productsDataLoaded">
+  <div *ngFor="let product of products" >
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <img *ngIf="product.imageUrls!.length >0"
+    [src]="product.imageUrls[0]" [alt]="product.name" width="300">
+  </div>
+</div>
+<!-- <img [src]="productImageUrls[0]" alt=""> -->
