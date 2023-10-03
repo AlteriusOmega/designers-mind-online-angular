@@ -9,7 +9,7 @@ import { StorageService } from '../storage.service';
 })
 export class ProductsComponent implements OnInit{
 
-  products: { name: string, description: string, imageUrls: string[] }[] = [];
+  products: { name: string, description: string, imageUrls: string[], price: number}[] = [];
 
   productImageUrls: string[] = [];
   productsDataLoaded: boolean = false;
