@@ -3,6 +3,8 @@
 ## Description
 This is an Angular project I developed utilizing Firebase Firestore, Storage, and Authentication for the backend as well as Bootstrap and Less.js for styling. It will serve as the new storefront to replace my Etsy store Designer's Mind Online where I sell 3D printed and laser-cut gifts that I design and create myself.
 
+**[Check out the live version here!](https://designers-mind-online-angular.web.app/products)**
+
 **This is what it looks like:**
 #### Products Page
 ![Products page](src/assets/dmo-quartz-products.png)
