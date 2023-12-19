@@ -20,7 +20,7 @@ export class StorageService {
     let listResult = await listAll(folderRef);
     const imageUrlPromises = listResult.items.map(item => getDownloadURL(item));
     const productImageUrls = await Promise.all(imageUrlPromises);
-    console.log(`In  and  is ${productImageUrls}`);
+    console.log(`In getProductImageUrls and productImageUrls is ${productImageUrls}`);
     return productImageUrls;
   }
 
