@@ -25,7 +25,7 @@ export class ProductsComponent implements OnInit{
     this.products = await this.productService.fetchProducts();
     for (const product of this.products) {
       product.imageUrls = await this.storageService.getProductImageUrls(product);
-      // console.log(`In loadProductsAndImages and products is`, this.products);
+      console.log(`In loadProductsAndImages and products is`, this.products);
       this.productsDataLoaded = true;
     }
   }

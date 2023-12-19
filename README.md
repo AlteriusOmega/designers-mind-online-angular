@@ -24,7 +24,7 @@ Firebase Storage uses a bucket and folder structure. This app makes use of Stora
 Auth is Firebase's authentication system which is very powerful and allows for authenticating through email and password, Facebook, Google and more. Currently we are using just email and password to keep things simple
 
 ## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Don't forget to do npm install first! There are very specific versions of rxfire and angular/fire to avoid [this bug](https://github.com/angular/angularfire/issues/3443) from rxfire. Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
