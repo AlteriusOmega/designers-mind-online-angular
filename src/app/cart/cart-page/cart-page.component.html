@@ -28,7 +28,12 @@
         <td>{{ item.quantity }}</td>
         <td>{{ item.quantity * item.product.price | number : "1.2-2" }}</td>
         <td>
-          <img src="./assets/trash.svg" alt="" />
+          <img
+            (click)="removeItem(item.product); $event.stopPropagation()"
+            src="./assets/trash.svg"
+            alt="Remove from cart"
+            style="cursor: pointer"
+          />
         </td>
       </tr>
       <tr class="table-secondary">

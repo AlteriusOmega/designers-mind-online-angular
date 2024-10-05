@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class SearchService {
+  // TODO maybe make this a signal instead of observable
   // Ex: rxjs and observables
   private searchTermSubject = new BehaviorSubject<string>('');
   searchTerm$ = this.searchTermSubject.asObservable();

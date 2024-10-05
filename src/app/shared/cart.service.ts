@@ -1,11 +1,29 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { CartItem, Product } from 'src/types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  private items: CartItem[] = [];
+  private itemsSubject = new BehaviorSubject<CartItem[]>([]);
+  items$ = this.itemsSubject.asObservable();
+  private items: CartItem[] = [
+    {
+      product: {
+        id: '5TQlJgL2mNQbgxgKQMIj',
+        description: 'blah',
+        imageUrls: [''],
+        name: 'test',
+        price: 99.45,
+      },
+      quantity: 5,
+    },
+  ];
+
+  refreshItems() {
+    this.itemsSubject.next([...this.items]);
+  }
 
   addToCart(newProduct: Product) {
     const existingItem = this.items.find(
@@ -16,10 +34,13 @@ export class CartService {
     } else {
       this.items.push({ product: newProduct, quantity: 1 });
     }
+    this.refreshItems();
   }
 
   removeFromCart(product: Product) {
+    console.log('In removeFromCart and product is \n', product);
     this.items = this.items.filter((item) => item.product.id !== product.id);
+    this.refreshItems();
   }
 
   reduceQuantity(product: Product) {
@@ -37,10 +58,11 @@ export class CartService {
         `Error: Cannot reduce quantity, product of ID ${product.id} not found in cart`
       );
     }
+    this.refreshItems();
   }
 
   getAllItems() {
-    return this.items;
+    return this.items.slice(); // Using slice to return a shallow copy, not a reference
   }
 
   getTotal() {
