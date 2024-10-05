@@ -1,5 +1,11 @@
 <div id="cart-widget" class="d-flex z-10">
-  <a routerLink="/cart"><h2>🛒</h2></a>
+  <a routerLink="/cart"
+    ><img
+      src="./assets/cart3.svg"
+      alt="cart"
+      class="img-fluid"
+      style="width: 40px; height: 40px"
+  /></a>
   <span>
     <sub> {{ cartService.getCount() }}</sub>
   </span>

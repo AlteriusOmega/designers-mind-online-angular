@@ -18,6 +18,7 @@
         <th>Price Ea.</th>
         <th>Quantity</th>
         <th>Price Total</th>
+        <th><img src="./assets/trash.svg" alt="" /></th>
       </tr>
     </thead>
     <tbody>
@@ -26,6 +27,9 @@
         <td>{{ item.product.price }}</td>
         <td>{{ item.quantity }}</td>
         <td>{{ item.quantity * item.product.price | number : "1.2-2" }}</td>
+        <td>
+          <img src="./assets/trash.svg" alt="" />
+        </td>
       </tr>
       <tr class="table-secondary">
         <td>
