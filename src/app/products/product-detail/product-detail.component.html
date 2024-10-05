@@ -16,7 +16,7 @@
         <h5 class="card-title">{{ product.name }}</h5>
         <p class="card-text fw-bold">Description: {{ product.description }}</p>
         <h4 class="card-text bold">${{ product.price }}</h4>
-        <a class="btn btn-primary">Add to Cart</a>
+        <app-add-to-cart [childProduct]="product"></app-add-to-cart>
       </div>
     </div>
   </div>

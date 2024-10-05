@@ -22,10 +22,7 @@
             </div>
           </div>
         </a>
-
-        <button class="btn btn-primary z-1" (click)="addToCart(product)">
-          Add to Cart
-        </button>
+        <app-add-to-cart [childProduct]="product"></app-add-to-cart>
       </div>
     </div>
   </div>

@@ -18,8 +18,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private searchService: SearchService,
-    private cartService: CartService
+    private searchService: SearchService
   ) {}
 
   ngOnInit(): void {
@@ -45,9 +44,5 @@ export class ProductsComponent implements OnInit {
         product.price.toString().includes(lowerTerm)
       );
     });
-  }
-
-  addToCart(product: Product) {
-    this.cartService.addToCart(product);
   }
 }
