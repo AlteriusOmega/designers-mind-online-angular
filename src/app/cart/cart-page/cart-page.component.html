@@ -1,0 +1,40 @@
+<h2>Shopping Cart</h2>
+
+<div *ngIf="items.length === 0" class="card">
+  <div class="card-body">
+    <h3 class="card-title">Your cart is empty {{ ":(" }}</h3>
+    <p class="card-text">
+      Check out the products to find some great gift ideas!
+    </p>
+    <a routerLink="/products" class="btn btn-primary">Products</a>
+  </div>
+</div>
+
+<div *ngIf="items.length > 0">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items" class="table-primary">
+        <td>{{ item.name }}</td>
+        <td>{{ item.price }}</td>
+      </tr>
+      <tr class="table-secondary">
+        <td>
+          Total:
+          <!-- '1.2-2' means {minIntegerDigits}.{minFractionDigits}-{maxFractionDigits}:
+          A minimum of 1 digit will be shown before decimal point
+          It will show at least 2 digits after decimal point
+          But not more than 2 digits
+          -->
+          {{ total | number : "1.2-2" }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-dark">Continue to payment</button>
+</div>

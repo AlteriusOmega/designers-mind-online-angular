@@ -1,24 +1,21 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Form, FormControl, FormGroup } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.less']
+  styleUrls: ['./login.component.less'],
 })
-export class LoginComponent implements OnInit{
-
-  constructor(private authService: AuthService) {
-
-  }
+export class LoginComponent implements OnInit {
+  constructor(private authService: AuthService) {}
 
   form!: FormGroup;
 
   ngOnInit(): void {
     this.form = new FormGroup({
       email: new FormControl(null),
-      password: new FormControl(null)
+      password: new FormControl(null),
     });
   }
 
@@ -28,19 +25,23 @@ export class LoginComponent implements OnInit{
     const email = this.form.value.email;
     const password = this.form.value.password;
 
-    console.log(`In onSubmit and email is ${email} and password is ${password}`);
+    console.log(
+      `In onSubmit and email is ${email} and password is ${password}`
+    );
 
     // signInWithEmailAndPassword(this.auth, this.form.value.email, this.form.value.password)
-    this.authService.login(email, password)
+    this.authService
+      .login(email, password)
       .then((userCredentials) => {
         const user = userCredentials.user;
         console.log(`User successfully logged in. User is`, user);
-
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(`Error logging in. Error code:${errorCode}, Error message:${errorMessage}`);
+        console.log(
+          `Error logging in. Error code:${errorCode}, Error message:${errorMessage}`
+        );
       });
   }
 }

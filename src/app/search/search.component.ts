@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { SearchService } from '../search.service';
+import { SearchService } from '../shared/search.service';
 
 @Component({
   selector: 'app-search',

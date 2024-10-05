@@ -6,22 +6,26 @@
 <div *ngIf="productsDataLoaded">
   <div class="row">
     <div *ngFor="let product of filteredProducts" class="col-md-3 mb-3">
-      <a [routerLink]="['/products', product.id]">
-        <div class="card" style="width: 100%">
-          <img
-            *ngIf="product.imageUrls!.length > 0"
-            [src]="product.imageUrls[0]"
-            [alt]="product.name"
-            class="card -img-top"
-          />
-          <div class="card-body">
-            <h5 class="card-title">{{ product.name }}</h5>
-            <!-- <p class="card-text">{{ product.description }}</p> -->
-            <h4 class="card-text bold">${{ product.price }}</h4>
-            <a class="btn btn-primary">Add to Cart</a>
+      <div id="product">
+        <a [routerLink]="['/products', product.id]" class="z-0">
+          <div class="card" style="width: 100%">
+            <img
+              *ngIf="product.imageUrls!.length > 0"
+              [src]="product.imageUrls[0]"
+              [alt]="product.name"
+              class="card -img-top"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <!-- <p class="card-text">{{ product.description }}</p> -->
+              <h4 class="card-text bold">${{ product.price }}</h4>
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+        <button class="btn btn-primary z-1" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+      </div>
     </div>
   </div>
 </div>

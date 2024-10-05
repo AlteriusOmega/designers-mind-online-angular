@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService } from '../shared/product.service';
 import { Product } from 'src/types';
-import { SearchService } from '../search.service';
+import { SearchService } from '../shared/search.service';
+import { CartService } from '../shared/cart.service';
 
 @Component({
   selector: 'app-products',
@@ -17,7 +18,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private searchService: SearchService
+    private searchService: SearchService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -43,5 +45,9 @@ export class ProductsComponent implements OnInit {
         product.price.toString().includes(lowerTerm)
       );
     });
+  }
+
+  addToCart(product: Product) {
+    this.cartService.addToCart(product);
   }
 }
