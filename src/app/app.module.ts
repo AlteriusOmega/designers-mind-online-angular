@@ -12,9 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
-import { ProductItemComponent } from './products/product-item/product-item.component';
 import { ProductsComponent } from './products/products.component';
-import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchComponent } from './search/search.component';
 
 import { getAuth, provideAuth } from '@angular/fire/auth';
@@ -31,9 +29,7 @@ import { SignupComponent } from './signup/signup.component';
     AppComponent,
     NavbarComponent,
     SearchComponent,
-    SearchResultsComponent,
     ProductsComponent,
-    ProductItemComponent,
     ProductDetailComponent,
     CartComponent,
     FooterComponent,

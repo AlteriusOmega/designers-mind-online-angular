@@ -5,7 +5,7 @@
 
 <div *ngIf="productsDataLoaded">
   <div class="row">
-    <div *ngFor="let product of allProducts" class="col-md-3 mb-3">
+    <div *ngFor="let product of filteredProducts" class="col-md-3 mb-3">
       <a [routerLink]="['/products', product.id]">
         <div class="card" style="width: 100%">
           <img
