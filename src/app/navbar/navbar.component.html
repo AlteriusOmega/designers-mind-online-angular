@@ -1,12 +1,11 @@
-<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
-  <div class="container-fluid">
-    <img src="./assets/designers_mind_logo.png" id="dm-logo" />
-    <a class="navbar-brand" routerLink="/">Designer's Mind Online</a>
-    <button class="navbar-toggler btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<nav class="navbar navbar-expand bg-primary" data-bs-theme="dark">
+  <div class="container-fluid flex-wrap">
+    <div id="logos" class="d-flex align-items-center">
+      <img src="./assets/designers_mind_logo.png" id="dm-logo" />
+      <a class="navbar-brand" routerLink="/">Designer's Mind Online</a>
+    </div>
+    <div id="nav-links" class="flex-grow-1">
+      <ul class="navbar-nav d-flex flex-row justify-content-evenly">
         <li class="nav-item">
           <a class="nav-link" routerLink="/">About</a>
         </li>
@@ -19,20 +18,10 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/login">Login</a>
         </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li> -->
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-info" type="submit">Search</button>
-      </form>
+    </div>
+    <div id="search" class="flex-grow-0">
+      <app-search></app-search>
     </div>
   </div>
 </nav>
