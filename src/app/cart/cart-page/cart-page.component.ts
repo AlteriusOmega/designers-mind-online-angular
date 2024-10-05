@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from 'src/types';
+import { CartItem, Product } from 'src/types';
 import { CartService } from '../../shared/cart.service';
 
 @Component({
@@ -8,12 +8,12 @@ import { CartService } from '../../shared/cart.service';
   styleUrls: ['./cart-page.component.less'],
 })
 export class CartPageComponent {
-  items: Product[] = [];
+  items: CartItem[] = [];
   total: number = 0;
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
-    this.items = this.cartService.getItems();
+    this.items = this.cartService.getAllItems();
     this.total = this.cartService.getTotal();
   }
 }
