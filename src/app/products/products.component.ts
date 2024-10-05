@@ -17,12 +17,13 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private seacrhService: SearchService
+    private searchService: SearchService
   ) {}
 
   ngOnInit(): void {
     this.loadProductsAndImages();
-    this.seacrhService.searchTerm$.subscribe((term) => {
+    // Ex: subscribing to an rxjs observable
+    this.searchService.searchTerm$.subscribe((term) => {
       this.filterProducts(term);
     });
   }
