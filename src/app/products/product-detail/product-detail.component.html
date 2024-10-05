@@ -1,1 +1,23 @@
-<p>product-detail works!</p>
+<ng-template #loading>
+  <p>Loading product details...</p>
+</ng-template>
+
+<div *ngIf="product; else loading">
+  <div id="detail-content">
+    <div id="detail-card" class="card">
+      <h2>{{ product.name }}</h2>
+      <img
+        *ngIf="product.imageUrls!.length > 0"
+        [src]="product.imageUrls[0]"
+        [alt]="product.name"
+        class="img-fluid w-50"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <h4 class="card-text bold">${{ product.price }}</h4>
+        <a class="btn btn-primary">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+</div>
