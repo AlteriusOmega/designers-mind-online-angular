@@ -32,7 +32,21 @@
       <tr *ngFor="let item of items" class="table-primary">
         <td>{{ item.product.name }}</td>
         <td>{{ item.product.price }}</td>
-        <td>{{ item.quantity }}</td>
+        <!-- <td>{{ item.quantity }}</td> -->
+        <td id="quantity">
+          <div data-mdb-input-init class="form-outline">
+            <!-- // Ex: ngModel and two-way binding with banana in a box syntax -->
+            <input
+              type="number"
+              id="qty-number"
+              class="form-control"
+              [(ngModel)]="item.quantity"
+              (ngModelChange)="
+                cartService.updateQuantity(item.product, item.quantity)
+              "
+            />
+          </div>
+        </td>
         <td>{{ item.quantity * item.product.price | number : "1.2-2" }}</td>
         <td>
           <img

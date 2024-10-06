@@ -20,6 +20,7 @@ import { SharedModule } from './shared/shared.module';
 import { SignupComponent } from './users/signup/signup.component';
 import { CartWidgetComponent } from './cart/cart-widget/cart-widget.component';
 import { AddToCartComponent } from './cart/add-to-cart/add-to-cart.component';
+import { FormsModule } from '@angular/forms';
 
 // initializeApp(environment.firebase);
 
@@ -47,6 +48,7 @@ import { AddToCartComponent } from './cart/add-to-cart/add-to-cart.component';
     AppRoutingModule,
     SharedModule,
     ProductsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

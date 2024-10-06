@@ -76,5 +76,23 @@ export class CartService {
     return this.items.reduce((sum, item) => sum + item.quantity, 0);
   }
 
+  updateQuantity(product: Product, quantity: number) {
+    const existingItem = this.items.find(
+      (item) => item.product.id === product.id
+    );
+    if (existingItem) {
+      if (quantity < 1) {
+        this.removeFromCart(product);
+      } else {
+        existingItem.quantity = quantity;
+      }
+      this.refreshItems();
+    } else {
+      console.error(
+        `Error: Cannot change quantity of item with product ID ${product.id} since it is not in cart`
+      );
+    }
+  }
+
   constructor() {}
 }
