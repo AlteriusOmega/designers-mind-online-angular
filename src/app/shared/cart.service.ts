@@ -8,20 +8,20 @@ import { CartItem, Product } from 'src/types';
 export class CartService {
   private itemsSubject = new BehaviorSubject<CartItem[]>([]);
   items$ = this.itemsSubject.asObservable();
-  // private items: CartItem[] = []; // Uncomment for prod!
-  private items: CartItem[] = [
-    // Comment out for prod!
-    {
-      product: {
-        id: '5TQlJgL2mNQbgxgKQMIj',
-        description: 'blah',
-        imageUrls: [''],
-        name: 'test',
-        price: 99.45,
-      },
-      quantity: 5,
-    },
-  ];
+  private items: CartItem[] = []; // Uncomment for prod!
+  // private items: CartItem[] = [
+  //   // Comment out for prod!
+  //   {
+  //     product: {
+  //       id: '5TQlJgL2mNQbgxgKQMIj',
+  //       description: 'blah',
+  //       imageUrls: [''],
+  //       name: 'test',
+  //       price: 99.45,
+  //     },
+  //     quantity: 5,
+  //   },
+  // ];
 
   refreshItems() {
     this.itemsSubject.next([...this.items]);
