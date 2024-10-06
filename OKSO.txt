@@ -15,3 +15,5 @@ For now let's be lazy and always pass the full DocumentData object to any functi
 Notes on Firebase API types etc.
 When you get a document from Firestire, the type is DocumentData, which is an object with unkown fields
 You can get a reference to a file or folder form Storage synchronously, but to get the actual file requires async/await or promises and .then
+
+To deploy (build production) just go in terminal in the root folder and do "firebase deploy". If it doesn't work try "firebase logout" then "firebase login"

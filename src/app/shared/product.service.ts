@@ -6,7 +6,6 @@ import {
   getDoc,
   getDocs,
 } from '@angular/fire/firestore';
-import { DocumentData } from 'rxfire/firestore/interfaces';
 import { StorageService } from './storage.service';
 import { Product } from 'src/types';
 

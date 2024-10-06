@@ -8,7 +8,9 @@ import { CartItem, Product } from 'src/types';
 export class CartService {
   private itemsSubject = new BehaviorSubject<CartItem[]>([]);
   items$ = this.itemsSubject.asObservable();
+  // private items: CartItem[] = []; // Uncomment for prod!
   private items: CartItem[] = [
+    // Comment out for prod!
     {
       product: {
         id: '5TQlJgL2mNQbgxgKQMIj',
@@ -77,12 +79,14 @@ export class CartService {
   }
 
   updateQuantity(product: Product, quantity: number) {
+    // TODO make it so this just can't go below 1
     const existingItem = this.items.find(
       (item) => item.product.id === product.id
     );
     if (existingItem) {
       if (quantity < 1) {
-        this.removeFromCart(product);
+        // Don't let it set quantity less than 1. Must use removeFromCart to delete item
+        existingItem.quantity = 1;
       } else {
         existingItem.quantity = quantity;
       }
