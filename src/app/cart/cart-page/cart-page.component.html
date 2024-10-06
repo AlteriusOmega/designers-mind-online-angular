@@ -18,7 +18,14 @@
         <th>Price Ea.</th>
         <th>Quantity</th>
         <th>Price Total</th>
-        <th><img src="./assets/trash.svg" alt="" /></th>
+        <th>
+          <img
+            src="./assets/trash-can-svgrepo-com.svg"
+            alt="trashcan"
+            class="img-fluid"
+            style="max-height: 29px"
+          />
+        </th>
       </tr>
     </thead>
     <tbody>
@@ -30,9 +37,10 @@
         <td>
           <img
             (click)="removeItem(item.product); $event.stopPropagation()"
-            src="./assets/trash.svg"
+            src="./assets/trash-can-svgrepo-com.svg"
             alt="Remove from cart"
-            style="cursor: pointer"
+            class="img-fluid"
+            style="cursor: pointer; max-height: 24px"
           />
         </td>
       </tr>
