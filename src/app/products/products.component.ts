@@ -19,7 +19,9 @@ export class ProductsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private searchService: SearchService
-  ) {}
+  ) {
+    console.log('products component constructor just ran!');
+  }
 
   ngOnInit(): void {
     this.loadProductsAndImages();
