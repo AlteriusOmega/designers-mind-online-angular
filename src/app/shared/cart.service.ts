@@ -23,8 +23,14 @@ export class CartService {
   //   },
   // ];
 
+  constructor() {
+    this.loadCartFromStorage();
+    this.refreshItems(); // Ask Kevin about this. Is it necessary?
+  }
+
   refreshItems() {
     this.itemsSubject.next([...this.items]);
+    this.saveCartToStorage();
   }
 
   addToCart(newProduct: Product) {
@@ -40,26 +46,7 @@ export class CartService {
   }
 
   removeFromCart(product: Product) {
-    console.log('In removeFromCart and product is \n', product);
     this.items = this.items.filter((item) => item.product.id !== product.id);
-    this.refreshItems();
-  }
-
-  reduceQuantity(product: Product) {
-    const existingItem = this.items.find(
-      (item) => item.product.id === product.id
-    );
-    if (existingItem) {
-      if (existingItem.quantity > 1) {
-        existingItem.quantity -= 1;
-      } else {
-        this.removeFromCart(product);
-      }
-    } else {
-      console.error(
-        `Error: Cannot reduce quantity, product of ID ${product.id} not found in cart`
-      );
-    }
     this.refreshItems();
   }
 
@@ -98,5 +85,20 @@ export class CartService {
     }
   }
 
-  constructor() {}
+  // Ex: local storage used to have data that persists through page reloads and even closing and re-opening tab
+  loadCartFromStorage() {
+    const storedCart = localStorage.getItem('cartItems');
+    if (storedCart) {
+      this.items = JSON.parse(storedCart);
+    }
+  }
+
+  clearCartFromStorage() {
+    this.items = [];
+    localStorage.removeItem('cartItems');
+  }
+
+  saveCartToStorage() {
+    localStorage.setItem('cartItems', JSON.stringify(this.items));
+  }
 }
