@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 // import { Firestore, collectionData, collection, addDoc } from '@angular/fire/firestore';
 import { AuthService } from '../../shared/auth.service';
 
 @Component({
+  // Ex: Standalone component
+  standalone: true,
+  imports: [ReactiveFormsModule],
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.less'],

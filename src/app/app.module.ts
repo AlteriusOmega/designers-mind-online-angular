@@ -35,7 +35,6 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     LoginComponent,
     HomeComponent,
-    SignupComponent,
     CartWidgetComponent,
     AddToCartComponent,
   ],
